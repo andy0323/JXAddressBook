@@ -13,7 +13,6 @@ JXAddressBook是一个获取手机通讯录信息的小组件, 它可以很方�
 
 ### 2. 如何获取通讯录信息
 
-#### Class Method
 **获取通讯录所有用户信息**
 
 ```
@@ -34,7 +33,7 @@ JXAddressBook是一个获取手机通讯录信息的小组件, 它可以很方�
 }];
 ```
 
-**JXPersonInfo类:**
+#### JXPersonInfo
 
 JXPersonInfo为简单的模型类, 它可以获取通讯录用户的所有信息
 
