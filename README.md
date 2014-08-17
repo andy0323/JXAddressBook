@@ -70,5 +70,5 @@ JXPersonInfo为简单的模型类, 它可以获取通讯录用户的所有信息
 
 ##Licenses
 
-All source code is licensed under the [MIT License](https://github.com/andy0323/JXRequest/blob/master/LICENSE).
+All source code is licensed under the [MIT License](https://github.com/andy0323/JXAddressBook/blob/master/LICENSE).
 
