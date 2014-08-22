@@ -125,6 +125,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+
+    JXPersonInfo *personInfo = [_dataArray objectAtIndex:indexPath.row];
+    NSLog(@"当前选择的用户信息为:\n%@", personInfo);
 }
 
 #pragma mark -
