@@ -51,7 +51,7 @@ if (str) {\
     NSMutableArray *rtnArray = [NSMutableArray array];\
 \
     ABMultiValueRef ref = ABRecordCopyValue(_recordRef, property_key);\
-    int count = ABMultiValueGetCount(ref);\
+    long count = ABMultiValueGetCount(ref);\
     for (int i = 0; i < count; i++)\
     {\
         NSString* label = (__bridge NSString*)ABAddressBookCopyLocalizedLabel(ABMultiValueCopyLabelAtIndex(ref, i));\
@@ -107,7 +107,7 @@ GET_PROPERTY_SIGLE_VALUE_METHOD(phone, kABPersonPhoneProperty)
     NSMutableArray *rtnArray = [NSMutableArray array];
     
     ABMultiValueRef address = ABRecordCopyValue(_recordRef, kABPersonAddressProperty);
-    int count = ABMultiValueGetCount(address);
+    long count = ABMultiValueGetCount(address);
     for(int i = 0; i < count; i++)
     {
         NSString* addressLabel = (__bridge NSString*)ABMultiValueCopyLabelAtIndex(address, i);
