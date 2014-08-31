@@ -165,9 +165,8 @@ GET_PROPERTY_SIGLE_VALUE_METHOD(phone, kABPersonPhoneProperty)
  */
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ %@ -- InfoPacket",
-            self.firstName,
-            self.lastName];
+    return [NSString stringWithFormat:@"%@ -- InfoPacket",
+            self.fullName];
 }
 
 /**
@@ -180,7 +179,7 @@ NSString* getFirstSpell(NSString *fullName)
     CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO);
     
     if (fullName.length > 0)
-        return [ms substringWithRange:NSMakeRange(0, 1)];
+        return [[ms substringWithRange:NSMakeRange(0, 1)] lowercaseString];
     else
         return @"#";
 }

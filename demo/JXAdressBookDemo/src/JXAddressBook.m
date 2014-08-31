@@ -9,6 +9,14 @@
 #pragma mark -
 #pragma mark - Public Class Method
 
+NSString* JXSpellFromIndex(int index)
+{
+    if (index == 26)
+        return @"#";
+    else
+        return [NSString stringWithFormat:@"%c", [@"a" characterAtIndex:0]+index];
+}
+
 #pragma mark ____Instance Method
 
 /**
@@ -36,15 +44,23 @@
     if (![personInfos isKindOfClass:[NSArray class]]) {
         return nil;
     }
-    
+
     NSMutableArray *arr = [NSMutableArray array];
+    
+    for (int i = 0; i < 27; i++) {
+        [arr addObject:[NSMutableArray array]];
+    }
+    
     for (NSObject *obj in personInfos) {
+
         if (![obj isKindOfClass:[JXPersonInfo class]]) {
             continue;
         }
         
         JXPersonInfo *personInfo = (JXPersonInfo *)obj;
         
+        NSMutableArray *subArr = [arr objectAtIndex:JXIndex(personInfo.firstSpell)];
+        [subArr addObject:personInfo];
     }
     
     return arr;
@@ -146,6 +162,17 @@ NSArray* transformElements(NSArray* arr)
         [rtnArray addObject:personInfo];
     }
     return rtnArray;
+}
+
+/**
+ *  获取首字母索引
+ */
+int JXIndex(NSString *firstSpell)
+{
+    if ([firstSpell isEqualToString:@"#"]) {
+        return 26;
+    }
+    return [firstSpell characterAtIndex:0] - [@"a" characterAtIndex:0];
 }
 
 @end

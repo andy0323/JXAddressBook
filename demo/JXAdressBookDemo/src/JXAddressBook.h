@@ -13,6 +13,11 @@
 @interface JXAddressBook : NSObject
 typedef void (^JXAddressBookBlock) (NSArray *personInfos);
 
+/**
+ *  将数字转化为字母 0~26 1~25=a~z 26=#
+ */
+NSString* JXSpellFromIndex(int index);
+
 #pragma mark - Instance Method
 
 /**

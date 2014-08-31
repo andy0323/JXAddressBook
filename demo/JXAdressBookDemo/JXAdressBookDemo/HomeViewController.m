@@ -23,10 +23,10 @@
 {
     [JXAddressBook getPersonInfo:^(NSArray *personInfos) {
         dispatch_async(dispatch_get_main_queue(), ^{
-            [JXAddressBook sortPersonInfos:personInfos];
-            
-            _dataArray = personInfos;
+            // 对获取数据进行排序
+            _dataArray = [JXAddressBook sortPersonInfos:personInfos];
             [_tableView reloadData];
+            _tableView.tableHeaderView = _searchBar;
         });
     }];
 }
@@ -34,6 +34,7 @@
 {
     [JXAddressBook searchPersonInfo:searchText addressBookBlock:^(NSArray *personInfos) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            // 直接获取数据
             _searchArray = personInfos;
             [_searchController.searchResultsTableView reloadData];
         });
@@ -79,17 +80,33 @@
     
     [self createTableView];
     [self createSearchBar];
+    
+    [self refreshPersonInfoTableView];
 }
 
 #pragma mark -
 #pragma mark - TableViewDelegate
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    if (tableView==_searchController.searchResultsTableView) {
+        return 1;
+    }
+    return _dataArray.count;
+}
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    if (tableView==_searchController.searchResultsTableView) {
+        return @"";
+    }
+    return JXSpellFromIndex(section);
+}
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (tableView==_searchController.searchResultsTableView) {
         return _searchArray.count;
     }
-    return _dataArray.count;
+    return ((NSArray *)[_dataArray objectAtIndex:section]).count;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -105,7 +122,8 @@
     if (tableView == _searchController.searchResultsTableView) {
         personInfo = [_searchArray objectAtIndex:indexPath.row];
     }else {
-        personInfo = [_dataArray objectAtIndex:indexPath.row];
+        NSArray *subArr = [_dataArray objectAtIndex:indexPath.section];
+        personInfo = [subArr objectAtIndex:indexPath.row];
     }
     
     cell.textLabel.text = personInfo.fullName;
@@ -123,8 +141,39 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 
-    JXPersonInfo *personInfo = [_dataArray objectAtIndex:indexPath.row];
+    JXPersonInfo *personInfo = nil;
+    if (tableView==_searchController.searchResultsTableView) {
+        personInfo = [_searchArray objectAtIndex:indexPath.row];
+    }else {
+        personInfo = [[_dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
+    }
+    
     NSLog(@"当前选择的用户信息为:\n%@", personInfo);
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    if (tableView==_searchController.searchResultsTableView) {
+        return 0;
+    }
+    
+    if (((NSArray *)[_dataArray objectAtIndex:section]).count==0) {
+        return 0;
+    }
+    return 30;
+}
+
+- (NSArray *)sectionIndexTitlesForTableView:(UITableView *)tableView
+{
+    if (tableView==_searchController.searchResultsTableView) {
+        return @[];
+    }
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    for (int i = 0; i < 27; i++) {
+        [arr addObject:JXSpellFromIndex(i)];
+    }
+    return arr;
 }
 
 #pragma mark -
