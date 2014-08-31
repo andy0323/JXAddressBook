@@ -22,16 +22,21 @@
  */
 + (id)personInfoWithABRecordRef:(ABRecordRef)ref;
 
+
 /**
  *  单值信息
  */
-#define PROPERTY_STR_READONLY(name) @property (nonatomic, copy, readonly) NSString *name;
+#define PROPERTY_STR_READONLY(name) @property (nonatomic, copy) NSString *name;
 // 姓
 PROPERTY_STR_READONLY(firstName)
 // 名
 PROPERTY_STR_READONLY(lastName)
 // 中间名
 PROPERTY_STR_READONLY(middlename)
+// 全名
+PROPERTY_STR_READONLY(fullName)
+// 搜索索引
+PROPERTY_STR_READONLY(firstSpell)
 // 前缀
 PROPERTY_STR_READONLY(prefix)
 // 后缀
@@ -62,7 +67,7 @@ PROPERTY_STR_READONLY(lastknow)
 PROPERTY_STR_READONLY(kind)
 
 // 多值信息
-#define PROPERTY_ARR_READONLY(name) @property (nonatomic, strong, readonly) NSArray *name;
+#define PROPERTY_ARR_READONLY(name) @property (nonatomic, strong) NSArray *name;
 // 邮箱
 PROPERTY_ARR_READONLY(email)
 // 地址
@@ -76,7 +81,7 @@ PROPERTY_ARR_READONLY(phone)
 // URL链接
 PROPERTY_ARR_READONLY(url)
 
-#define PROPERTY_IMG_READONLY(name) @property (nonatomic, strong, readonly) UIImage *name;
+#define PROPERTY_IMG_READONLY(name) @property (nonatomic, strong) UIImage *name;
 // 图片
 PROPERTY_IMG_READONLY(image)
 

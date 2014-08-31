@@ -1,4 +1,8 @@
 #import "JXPersonInfo.h"
+
+#define nullStrToEmpty(str) \
+[str rangeOfString:@"null"].location==0? @"" : str
+
 @implementation JXPersonInfo
 
 - (id)initWithABRecordRef:(ABRecordRef)ref
@@ -51,7 +55,7 @@ if (str) {\
     NSMutableArray *rtnArray = [NSMutableArray array];\
 \
     ABMultiValueRef ref = ABRecordCopyValue(_recordRef, property_key);\
-    int count = ABMultiValueGetCount(ref);\
+    long count = ABMultiValueGetCount(ref);\
     for (int i = 0; i < count; i++)\
     {\
         NSString* label = (__bridge NSString*)ABAddressBookCopyLocalizedLabel(ABMultiValueCopyLabelAtIndex(ref, i));\
@@ -107,7 +111,7 @@ GET_PROPERTY_SIGLE_VALUE_METHOD(phone, kABPersonPhoneProperty)
     NSMutableArray *rtnArray = [NSMutableArray array];
     
     ABMultiValueRef address = ABRecordCopyValue(_recordRef, kABPersonAddressProperty);
-    int count = ABMultiValueGetCount(address);
+    long count = ABMultiValueGetCount(address);
     for(int i = 0; i < count; i++)
     {
         NSString* addressLabel = (__bridge NSString*)ABMultiValueCopyLabelAtIndex(address, i);
@@ -139,12 +143,45 @@ GET_PROPERTY_SIGLE_VALUE_METHOD(phone, kABPersonPhoneProperty)
     return [UIImage imageWithData:data];
 }
 
+#pragma mark -
+#pragma mark - CustomProperty
+/**
+ *  全名
+ */
+- (NSString *)fullName
+{
+    return [NSString stringWithFormat:@"%@%@%@",
+            nullStrToEmpty(self.lastName),
+            nullStrToEmpty(self.middlename),
+            nullStrToEmpty(self.firstName)];
+}
+- (NSString *)firstSpell
+{
+    return getFirstSpell(self.fullName);
+}
+
 /**
  *  输出模型所有信息
  */
 - (NSString *)description
 {
-    return [NSString stringWithFormat:@"%@ %@ -- InfoPacket", self.firstName, self.lastName];
+    return [NSString stringWithFormat:@"%@ -- InfoPacket",
+            self.fullName];
+}
+
+/**
+ *  获取首字母
+ */
+NSString* getFirstSpell(NSString *fullName)
+{
+    NSMutableString *ms = [[NSMutableString alloc] initWithString:fullName];
+    CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformMandarinLatin, NO);
+    CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO);
+    
+    if (fullName.length > 0)
+        return [[ms substringWithRange:NSMakeRange(0, 1)] lowercaseString];
+    else
+        return @"#";
 }
 
 @end

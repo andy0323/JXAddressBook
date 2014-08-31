@@ -9,7 +9,15 @@
 #pragma mark -
 #pragma mark - Public Class Method
 
-#pragma mark - ____Instance Method
+NSString* JXSpellFromIndex(int index)
+{
+    if (index == 26)
+        return @"#";
+    else
+        return [NSString stringWithFormat:@"%c", [@"a" characterAtIndex:0]+index];
+}
+
+#pragma mark ____Instance Method
 
 /**
  *  获取用户所有通讯录信息
@@ -28,8 +36,38 @@
     [self searchPersonInfo:keyWord];
 }
 
+/**
+ *  根据姓名进行数组的重排序
+ */
+- (NSArray *)sortPersonInfos:(NSArray *)personInfos
+{
+    if (![personInfos isKindOfClass:[NSArray class]]) {
+        return nil;
+    }
+
+    NSMutableArray *arr = [NSMutableArray array];
+    
+    for (int i = 0; i < 27; i++) {
+        [arr addObject:[NSMutableArray array]];
+    }
+    
+    for (NSObject *obj in personInfos) {
+
+        if (![obj isKindOfClass:[JXPersonInfo class]]) {
+            continue;
+        }
+        
+        JXPersonInfo *personInfo = (JXPersonInfo *)obj;
+        
+        NSMutableArray *subArr = [arr objectAtIndex:JXIndex(personInfo.firstSpell)];
+        [subArr addObject:personInfo];
+    }
+    
+    return arr;
+}
+
 #pragma mark -
-#pragma mark - ____Class Method
+#pragma mark ____Class Method
 
 /**
  *  获取用户所有通讯录信息
@@ -47,9 +85,16 @@
     [[self alloc] searchPersonInfo:keyWord addressBookBlock:addressBookBlock];
 }
 
+/**
+ *  根据姓名进行数组的重排序
+ */
++ (NSArray *)sortPersonInfos:(NSArray *)personInfos
+{
+    return [[self alloc] sortPersonInfos:personInfos];
+}
 
 #pragma mark -
-#pragma mark - Instance Methods
+#pragma mark ____Private Methods
 
 /**
  *  根据关键字查询通讯录信息
@@ -117,6 +162,17 @@ NSArray* transformElements(NSArray* arr)
         [rtnArray addObject:personInfo];
     }
     return rtnArray;
+}
+
+/**
+ *  获取首字母索引
+ */
+int JXIndex(NSString *firstSpell)
+{
+    if ([firstSpell isEqualToString:@"#"]) {
+        return 26;
+    }
+    return [firstSpell characterAtIndex:0] - [@"a" characterAtIndex:0];
 }
 
 @end

@@ -13,6 +13,11 @@
 @interface JXAddressBook : NSObject
 typedef void (^JXAddressBookBlock) (NSArray *personInfos);
 
+/**
+ *  将数字转化为字母 0~26 1~25=a~z 26=#
+ */
+NSString* JXSpellFromIndex(int index);
+
 #pragma mark - Instance Method
 
 /**
@@ -30,6 +35,14 @@ typedef void (^JXAddressBookBlock) (NSArray *personInfos);
  *  @return 匹配到的通讯录数据信息数组
  */
 - (void)searchPersonInfo:(NSString *)keyWord addressBookBlock:(JXAddressBookBlock)addressBookBlock;
+
+/**
+ *  根据姓名进行数组的重排序
+ *
+ *  @param personInfos 获取的通讯录数据信息数组
+ */
+- (NSArray *)sortPersonInfos:(NSArray *)personInfos;
+
 
 #pragma mark - Class Method
 
@@ -49,4 +62,10 @@ typedef void (^JXAddressBookBlock) (NSArray *personInfos);
  */
 + (void)searchPersonInfo:(NSString *)keyWord addressBookBlock:(JXAddressBookBlock)addressBookBlock;
 
+/**
+ *  根据姓名进行数组的重排序
+ *
+ *  @param personInfos 获取的通讯录数据信息数组
+ */
++ (NSArray *)sortPersonInfos:(NSArray *)personInfos;
 @end
