@@ -33,6 +33,16 @@ JXAddressBook是一个获取手机通讯录信息的小组件, 它可以很方�
 }];
 ```
 
+**将搜索结果进行排序**
+
+	+ (NSArray *)sortPersonInfos:(NSArray *)personInfos
+
+可以将杂乱无章的通讯录信息进行排序, 返回的数组结构如下
+
+* arr
+	* subArr (一共26组子数据 元素类型为**`JXPersonInfo`**)
+
+
 #### 3. 通讯录用户信息类 JXPersonInfo
 
 JXPersonInfo为简单的模型类, 它可以获取通讯录用户的所有信息
@@ -42,6 +52,8 @@ JXPersonInfo为简单的模型类, 它可以获取通讯录用户的所有信息
 |     firstName      |   String    |      姓                | 
 |     lastName       |	 String     |      名                | 
 |     middlename     |	 String     |    中间名               |
+|     fullname       |	 String     |     名字全称            |
+|     firstSpell     |	 String     |     姓名首字母           |
 |     prefix         |	 String     |     前缀                |
 |     suffix         |	 String     |     后缀                |
 |     nickname       |	 String     |     昵称                |
@@ -65,8 +77,9 @@ JXPersonInfo为简单的模型类, 它可以获取通讯录用户的所有信息
 |     	image        |	 UIImage    |   设置头像               |
 
 ## Contact
-**Email:** andy_ios@163.com
 
+**author:** Andy Jin  
+**Email:** andy_ios@163.com
 
 ##Licenses
 
