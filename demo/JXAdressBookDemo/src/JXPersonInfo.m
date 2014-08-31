@@ -1,4 +1,8 @@
 #import "JXPersonInfo.h"
+
+#define nullStrToEmpty(str) \
+[str rangeOfString:@"null"].location==0? @"" : str
+
 @implementation JXPersonInfo
 
 - (id)initWithABRecordRef:(ABRecordRef)ref
@@ -137,6 +141,19 @@ GET_PROPERTY_SIGLE_VALUE_METHOD(phone, kABPersonPhoneProperty)
 {
     NSData *data = (__bridge NSData*)ABPersonCopyImageData(_recordRef);
     return [UIImage imageWithData:data];
+}
+
+#pragma mark -
+#pragma mark - CustomProperty
+/**
+ *  全名
+ */
+- (NSString *)fullName
+{
+    return [NSString stringWithFormat:@"%@%@%@",
+            nullStrToEmpty(self.lastName),
+            nullStrToEmpty(self.middlename),
+            nullStrToEmpty(self.firstName)];
 }
 
 /**

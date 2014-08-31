@@ -22,6 +22,7 @@
  */
 + (id)personInfoWithABRecordRef:(ABRecordRef)ref;
 
+
 /**
  *  单值信息
  */
@@ -32,6 +33,8 @@ PROPERTY_STR_READONLY(firstName)
 PROPERTY_STR_READONLY(lastName)
 // 中间名
 PROPERTY_STR_READONLY(middlename)
+// 全名
+PROPERTY_STR_READONLY(fullName);
 // 前缀
 PROPERTY_STR_READONLY(prefix)
 // 后缀

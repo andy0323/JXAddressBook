@@ -9,7 +9,7 @@
 #pragma mark -
 #pragma mark - Public Class Method
 
-#pragma mark - ____Instance Method
+#pragma mark ____Instance Method
 
 /**
  *  获取用户所有通讯录信息
@@ -28,8 +28,32 @@
     [self searchPersonInfo:keyWord];
 }
 
+/**
+ *  根据姓名进行数组的重排序
+ *
+ *  @param personInfos 获取的通讯录数据信息数组
+ */
+- (NSArray *)sortPersonInfos:(NSArray *)personInfos
+{
+    if (![personInfos isKindOfClass:[NSArray class]]) {
+        return nil;
+    }
+    
+    NSMutableArray *arr = [NSMutableArray array];
+    for (NSObject *obj in personInfos) {
+        if (![obj isKindOfClass:[JXPersonInfo class]]) {
+            continue;
+        }
+        
+        JXPersonInfo *personInfo = (JXPersonInfo *)obj;
+        
+    }
+    
+    return arr;
+}
+
 #pragma mark -
-#pragma mark - ____Class Method
+#pragma mark ____Class Method
 
 /**
  *  获取用户所有通讯录信息
@@ -49,7 +73,7 @@
 
 
 #pragma mark -
-#pragma mark - Instance Methods
+#pragma mark ____Private Methods
 
 /**
  *  根据关键字查询通讯录信息

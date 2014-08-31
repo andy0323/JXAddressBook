@@ -12,9 +12,6 @@
     NSArray *_searchArray;
 }
 
-#define nullStrToEmpty(str) \
-    [str rangeOfString:@"null"].location==0? @"" : str
-
 @end
 
 @implementation HomeViewController
@@ -109,9 +106,7 @@
         personInfo = [_dataArray objectAtIndex:indexPath.row];
     }
     
-    cell.textLabel.text = [NSString stringWithFormat:@"%@ %@",
-                           nullStrToEmpty(personInfo.firstName),
-                           nullStrToEmpty(personInfo.lastName)];
+    cell.textLabel.text = personInfo.fullName;
     
     if (personInfo.phone.count>0) {
         cell.detailTextLabel.text = [personInfo.phone[0] objectForKey:((NSDictionary *)personInfo.phone[0]).allKeys[0]];
