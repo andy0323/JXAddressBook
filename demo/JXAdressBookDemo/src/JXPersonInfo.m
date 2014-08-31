@@ -155,6 +155,10 @@ GET_PROPERTY_SIGLE_VALUE_METHOD(phone, kABPersonPhoneProperty)
             nullStrToEmpty(self.middlename),
             nullStrToEmpty(self.firstName)];
 }
+- (NSString *)firstSpell
+{
+    return getFirstSpell(self.fullName);
+}
 
 /**
  *  输出模型所有信息
@@ -164,6 +168,21 @@ GET_PROPERTY_SIGLE_VALUE_METHOD(phone, kABPersonPhoneProperty)
     return [NSString stringWithFormat:@"%@ %@ -- InfoPacket",
             self.firstName,
             self.lastName];
+}
+
+/**
+ *  获取首字母
+ */
+NSString* getFirstSpell(NSString *fullName)
+{
+    NSMutableString *ms = [[NSMutableString alloc] initWithString:fullName];
+    CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformMandarinLatin, NO);
+    CFStringTransform((__bridge CFMutableStringRef)ms, 0, kCFStringTransformStripDiacritics, NO);
+    
+    if (fullName.length > 0)
+        return [ms substringWithRange:NSMakeRange(0, 1)];
+    else
+        return @"#";
 }
 
 @end

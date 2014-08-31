@@ -57,4 +57,10 @@ typedef void (^JXAddressBookBlock) (NSArray *personInfos);
  */
 + (void)searchPersonInfo:(NSString *)keyWord addressBookBlock:(JXAddressBookBlock)addressBookBlock;
 
+/**
+ *  根据姓名进行数组的重排序
+ *
+ *  @param personInfos 获取的通讯录数据信息数组
+ */
++ (NSArray *)sortPersonInfos:(NSArray *)personInfos;
 @end

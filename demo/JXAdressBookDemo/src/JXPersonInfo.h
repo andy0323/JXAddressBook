@@ -34,7 +34,9 @@ PROPERTY_STR_READONLY(lastName)
 // 中间名
 PROPERTY_STR_READONLY(middlename)
 // 全名
-PROPERTY_STR_READONLY(fullName);
+PROPERTY_STR_READONLY(fullName)
+// 搜索索引
+PROPERTY_STR_READONLY(firstSpell)
 // 前缀
 PROPERTY_STR_READONLY(prefix)
 // 后缀

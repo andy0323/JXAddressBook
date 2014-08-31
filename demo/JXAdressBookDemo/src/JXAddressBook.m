@@ -30,8 +30,6 @@
 
 /**
  *  根据姓名进行数组的重排序
- *
- *  @param personInfos 获取的通讯录数据信息数组
  */
 - (NSArray *)sortPersonInfos:(NSArray *)personInfos
 {
@@ -71,6 +69,13 @@
     [[self alloc] searchPersonInfo:keyWord addressBookBlock:addressBookBlock];
 }
 
+/**
+ *  根据姓名进行数组的重排序
+ */
++ (NSArray *)sortPersonInfos:(NSArray *)personInfos
+{
+    return [[self alloc] sortPersonInfos:personInfos];
+}
 
 #pragma mark -
 #pragma mark ____Private Methods

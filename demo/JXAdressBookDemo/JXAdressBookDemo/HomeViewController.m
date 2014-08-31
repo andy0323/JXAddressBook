@@ -23,6 +23,8 @@
 {
     [JXAddressBook getPersonInfo:^(NSArray *personInfos) {
         dispatch_async(dispatch_get_main_queue(), ^{
+            [JXAddressBook sortPersonInfos:personInfos];
+            
             _dataArray = personInfos;
             [_tableView reloadData];
         });
