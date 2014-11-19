@@ -10,29 +10,29 @@
 	<string>JXAdressBookDemo</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>C305BD51-25DF-4FB1-8F25-124C4837A097</key>
-		<string>ssh://github.com/andy0323/JXAddressBook.git</string>
+		<key>9DB7DB15CE0EF45689F7EEA6BFFFA6DF3ED46DBC</key>
+		<string>github.com:andy0323/JXAddressBook.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>demo/JXAdressBookDemo/JXAdressBookDemo.xcodeproj/project.xcworkspace</string>
+	<string>demo/JXAdressBookDemo/JXAdressBookDemo.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>C305BD51-25DF-4FB1-8F25-124C4837A097</key>
+		<key>9DB7DB15CE0EF45689F7EEA6BFFFA6DF3ED46DBC</key>
 		<string>../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/andy0323/JXAddressBook.git</string>
+	<string>github.com:andy0323/JXAddressBook.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>C305BD51-25DF-4FB1-8F25-124C4837A097</string>
+	<string>9DB7DB15CE0EF45689F7EEA6BFFFA6DF3ED46DBC</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>C305BD51-25DF-4FB1-8F25-124C4837A097</string>
+			<string>9DB7DB15CE0EF45689F7EEA6BFFFA6DF3ED46DBC</string>
 			<key>IDESourceControlWCCName</key>
 			<string>JXAddressBook</string>
 		</dict>

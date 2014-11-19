@@ -169,7 +169,10 @@ NSArray* transformElements(NSArray* arr)
  */
 int JXIndex(NSString *firstSpell)
 {
-    if ([firstSpell isEqualToString:@"#"]) {
+    NSString *regex = @"^[A-z]$";
+    BOOL isMatched = [[NSPredicate predicateWithFormat:@"SELF MATCHES %@", regex] evaluateWithObject:firstSpell];
+    
+    if ([firstSpell isEqualToString:@"#"] || !isMatched) {
         return 26;
     }
     return [firstSpell characterAtIndex:0] - [@"a" characterAtIndex:0];

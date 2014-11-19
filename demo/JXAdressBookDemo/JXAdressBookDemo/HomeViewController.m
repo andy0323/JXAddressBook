@@ -80,7 +80,6 @@
     
     [self createTableView];
     [self createSearchBar];
-    
     [self refreshPersonInfoTableView];
 }
 
@@ -129,7 +128,9 @@
     cell.textLabel.text = personInfo.fullName;
     
     if (personInfo.phone.count>0) {
-        cell.detailTextLabel.text = [personInfo.phone[0] objectForKey:((NSDictionary *)personInfo.phone[0]).allKeys[0]];
+        cell.detailTextLabel.text = [personInfo.phone[0] allObjects][0];
+        
+//        cell.detailTextLabel.text = [personInfo.phone[0] objectForKey:((NSDictionary *)personInfo.phone[0]).allKeys[0]];
     }else {
         cell.detailTextLabel.text = @"暂无联系方式";
 

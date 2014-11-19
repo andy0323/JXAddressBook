@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A1B72E8E1A1CD7260018ED51 /* JXAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B72E8B1A1CD7260018ED51 /* JXAddressBook.m */; };
+		A1B72E8F1A1CD7260018ED51 /* JXPersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A1B72E8D1A1CD7260018ED51 /* JXPersonInfo.m */; };
 		A1C8897F199DF4A800A3FEC3 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C8897E199DF4A800A3FEC3 /* Foundation.framework */; };
 		A1C88981199DF4A800A3FEC3 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C88980199DF4A800A3FEC3 /* CoreGraphics.framework */; };
 		A1C88983199DF4A800A3FEC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C88982199DF4A800A3FEC3 /* UIKit.framework */; };
@@ -19,8 +21,6 @@
 		A1C8899A199DF4A800A3FEC3 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A1C88982199DF4A800A3FEC3 /* UIKit.framework */; };
 		A1C889A2199DF4A800A3FEC3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = A1C889A0199DF4A800A3FEC3 /* InfoPlist.strings */; };
 		A1C889A4199DF4A800A3FEC3 /* JXAdressBookDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C889A3199DF4A800A3FEC3 /* JXAdressBookDemoTests.m */; };
-		A1C889B2199DF4BC00A3FEC3 /* JXAddressBook.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C889AF199DF4BC00A3FEC3 /* JXAddressBook.m */; };
-		A1C889B3199DF4BC00A3FEC3 /* JXPersonInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C889B1199DF4BC00A3FEC3 /* JXPersonInfo.m */; };
 		A1C889B6199DF4D300A3FEC3 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A1C889B5199DF4D300A3FEC3 /* HomeViewController.m */; };
 		A1C889B8199DF5E800A3FEC3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A1C889B7199DF5E800A3FEC3 /* Main.storyboard */; };
 /* End PBXBuildFile section */
@@ -36,6 +36,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A1B72E8A1A1CD7260018ED51 /* JXAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXAddressBook.h; sourceTree = "<group>"; };
+		A1B72E8B1A1CD7260018ED51 /* JXAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXAddressBook.m; sourceTree = "<group>"; };
+		A1B72E8C1A1CD7260018ED51 /* JXPersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPersonInfo.h; sourceTree = "<group>"; };
+		A1B72E8D1A1CD7260018ED51 /* JXPersonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPersonInfo.m; sourceTree = "<group>"; };
 		A1C8897B199DF4A800A3FEC3 /* JXAdressBookDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JXAdressBookDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A1C8897E199DF4A800A3FEC3 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A1C88980199DF4A800A3FEC3 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -52,10 +56,6 @@
 		A1C8899F199DF4A800A3FEC3 /* JXAdressBookDemoTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "JXAdressBookDemoTests-Info.plist"; sourceTree = "<group>"; };
 		A1C889A1199DF4A800A3FEC3 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		A1C889A3199DF4A800A3FEC3 /* JXAdressBookDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = JXAdressBookDemoTests.m; sourceTree = "<group>"; };
-		A1C889AE199DF4BC00A3FEC3 /* JXAddressBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXAddressBook.h; sourceTree = "<group>"; };
-		A1C889AF199DF4BC00A3FEC3 /* JXAddressBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXAddressBook.m; sourceTree = "<group>"; };
-		A1C889B0199DF4BC00A3FEC3 /* JXPersonInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JXPersonInfo.h; sourceTree = "<group>"; };
-		A1C889B1199DF4BC00A3FEC3 /* JXPersonInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JXPersonInfo.m; sourceTree = "<group>"; };
 		A1C889B4199DF4D300A3FEC3 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		A1C889B5199DF4D300A3FEC3 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		A1C889B7199DF5E800A3FEC3 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
@@ -85,10 +85,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A1B72E891A1CD7260018ED51 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				A1B72E8A1A1CD7260018ED51 /* JXAddressBook.h */,
+				A1B72E8B1A1CD7260018ED51 /* JXAddressBook.m */,
+				A1B72E8C1A1CD7260018ED51 /* JXPersonInfo.h */,
+				A1B72E8D1A1CD7260018ED51 /* JXPersonInfo.m */,
+			);
+			name = src;
+			path = ../../src;
+			sourceTree = "<group>";
+		};
 		A1C88972199DF4A800A3FEC3 = {
 			isa = PBXGroup;
 			children = (
-				A1C889AD199DF4BC00A3FEC3 /* src */,
+				A1B72E891A1CD7260018ED51 /* src */,
 				A1C88984199DF4A800A3FEC3 /* JXAdressBookDemo */,
 				A1C8899D199DF4A800A3FEC3 /* JXAdressBookDemoTests */,
 				A1C8897D199DF4A800A3FEC3 /* Frameworks */,
@@ -157,17 +169,6 @@
 				A1C889A0199DF4A800A3FEC3 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		A1C889AD199DF4BC00A3FEC3 /* src */ = {
-			isa = PBXGroup;
-			children = (
-				A1C889AE199DF4BC00A3FEC3 /* JXAddressBook.h */,
-				A1C889AF199DF4BC00A3FEC3 /* JXAddressBook.m */,
-				A1C889B0199DF4BC00A3FEC3 /* JXPersonInfo.h */,
-				A1C889B1199DF4BC00A3FEC3 /* JXPersonInfo.m */,
-			);
-			path = src;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,9 +267,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A1C889B2199DF4BC00A3FEC3 /* JXAddressBook.m in Sources */,
 				A1C8898F199DF4A800A3FEC3 /* AppDelegate.m in Sources */,
-				A1C889B3199DF4BC00A3FEC3 /* JXPersonInfo.m in Sources */,
+				A1B72E8E1A1CD7260018ED51 /* JXAddressBook.m in Sources */,
+				A1B72E8F1A1CD7260018ED51 /* JXPersonInfo.m in Sources */,
 				A1C889B6199DF4D300A3FEC3 /* HomeViewController.m in Sources */,
 				A1C8898B199DF4A800A3FEC3 /* main.m in Sources */,
 			);
@@ -471,6 +472,7 @@
 				A1C889A9199DF4A900A3FEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A1C889AA199DF4A900A3FEC3 /* Build configuration list for PBXNativeTarget "JXAdressBookDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -479,6 +481,7 @@
 				A1C889AC199DF4A900A3FEC3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
